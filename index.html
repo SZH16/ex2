@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/pixi.min.js"></script>
+    <script>
+		var app = new PIXI.Application(1470,825);
+        document.body.appendChild(app.view);
+        
+        var bg = new PIXI.Sprite.fromImage("res/bg.png");
+        app.stage.addChild(bg);
+		
+		var pj = new PIXI.Sprite.fromImage("res/pj.png");
+		pj.x = 65;
+		pj.y = 0;
+		pj.visible = true;
+		app.stage.addChild(pj);
+		
+		var menu = new PIXI.Sprite.fromImage("res/menu.png");
+		menu.y = 100;
+		menu.width = 1470;
+		menu.visible = false;
+		app.stage.addChild(menu);
+		
+		var b1 = new PIXI.Sprite.fromImage("res/b1.png");
+		b1.x = 300;
+		b1.y = 670;
+		b1.visible = false;
+		app.stage.addChild(b1);
+		
+		var b2 = new PIXI.Sprite.fromImage("res/b2.png");
+		b2.x = 800;
+		b2.y = 670;
+		b2.visible = false;
+		app.stage.addChild(b2);
+		
+		var yiyi = new PIXI.Sprite.fromImage("res/yiyi.png");
+		yiyi.visible = false;
+		app.stage.addChild(yiyi);
+		
+				
+		bg.interactive = true;
+		bg.on("click",viewmenu);
+		function viewmenu() {
+		    menu.visible = true;
+			b1.visible = true;
+			b2.visible = true;
+			yiyi.visible = false;
+			pj.visible = true;
+		}
+		
+		b1.interactive = true;
+		b1.on("click",yy);
+		function yy() {
+		    menu.visible = false;
+			b1.visible = false;
+			b2.visible = false;
+			pj.visible = false;
+			yiyi.visible = true;
+		}
+		
+		b2.interactive = true;
+		b2.on("click",pz);
+		function pz() {
+		    menu.visible = false;
+			b1.visible = false;
+			b2.visible = false;
+			pj.visible = false;
+			yiyi.visible = false;
+		}	
+    </script>
+</body>
+</html>
